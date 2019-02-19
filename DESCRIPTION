@@ -1,0 +1,20 @@
+Package: MethylResolver
+Type: Package
+Title: Deconvolution of bulk methylation data
+Version: 0.1.0
+Author: Douglas Arneson
+Maintainer: Douglas Arneson <darneson@ucla.edu>
+Description: Package for the deconvolution of bulk methylation data into cell type fractions given a reference signature matrix for each cell type expected in the bulk profile. It also allows for the estimation of unknown content (purity) which allows both relative and absolute cell type fractions to be reported.
+Depends:
+    R (>= 3.3.0)
+Imports: varhandle,
+  doSNOW,
+  snow,
+  robustbase,
+  foreach,
+  doParallel,
+  Metrics,
+  randomForest
+License: GPL-3
+Encoding: UTF-8
+LazyData: true

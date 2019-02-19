@@ -1,0 +1,10 @@
+export(MethylResolver)
+
+import(varhandle)
+import(doSNOW)
+import(snow)
+import(robustbase)
+import(foreach)
+import(doParallel)
+import(Metrics)
+import(randomForest)
