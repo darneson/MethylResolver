@@ -71,7 +71,7 @@ MethylResolver(methylMix = MethylMix, absolute = FALSE)
 # Specify your own signature matrix and RF model for
 # calculating absolute fractions:
 MethylResolver(methylMix = MethylMix, methylSig = 
-methylSig, purityModel = RFmodel)
+MethylSig, purityModel = RFmodel)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

@@ -13,13 +13,6 @@ MethylResolver <- function(methylMix = NULL, methylSig = MethylSig, betaPrime = 
       cat("LTS Deconvolution Already Exists For This Mixture...\n")
     } else{
       cat("Beginning LTS Deconvolution For This Mixture...\n")
-      
-      #Load the MethylResolver leukocyte signature, if default
-      # if(is.character(methylSig)){
-      #   if(methylSig == "default"){
-      #     methylSig = MethylSig
-      #   }
-      # }
 
       #Format input matrices
       methylSig <- as.data.frame(methylSig)
@@ -104,12 +97,6 @@ MethylResolver <- function(methylMix = NULL, methylSig = MethylSig, betaPrime = 
       if(absolute == TRUE){
         #Predict sample purity and calculate absolute fractions
         ignoreMetrics = which(colnames(ltsModel) %in% c("RMSE1","R1","RMSE2","R2"))
-        # if(is.character(purityModel)){
-        #   if(purityModel == "default"){
-        #     data("RFmodel", package="MethylResolver")
-        #     rfModel = RFmodel
-        #   }
-        # } else{
         if(class(purityModel)[1] == "randomForest.formula"){
           rfModel = purityModel
         }
@@ -117,13 +104,11 @@ MethylResolver <- function(methylMix = NULL, methylSig = MethylSig, betaPrime = 
           cat("Provided purity model is not correct. Please provide a random forest model trained to
               predict purity...")
         }
-        # }
         purityPrediction = predict(rfModel,ltsModel)
         absoluteFractions = ltsModel[,-ignoreMetrics]*(1-purityPrediction)
         colnames(absoluteFractions) = paste0("abs_",colnames(absoluteFractions))
         absoluteFractions$Purity = purityPrediction
         ltsModel = cbind(ltsModel,absoluteFractions)
-
       }
       
       #write to file
