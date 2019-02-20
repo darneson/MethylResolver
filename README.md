@@ -7,7 +7,7 @@ MethylResolver was developed and is maintained by Douglas Arneson at UCLA.
 ## Install MethylResolver v0.1.0
 ```r
 install.packages('devtools')
-devtools::install_github(repo = 'darneson/MethylResolver', ref = 'release/0.1.0')
+devtools::install_github(repo = 'darneson/MethylResolver')
 library(MethylResolver)
 ```
 
