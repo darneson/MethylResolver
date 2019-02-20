@@ -4,14 +4,14 @@ MethylResolver is an R package to conduct robust deconvolution of bulk tissue me
 
 MethylResolver was developed and is maintained by Douglas Arneson at UCLA.
 
-Install MethylResolver v0.1.0
+## Install MethylResolver v0.1.0
 ```r
 install.packages('devtools')
 devtools::install_github(repo = 'darneson/MethylResolver', ref = 'release/0.1.0')
 library(MethylResolver)
 ```
 
-Version History
+## Version History
 
 February 20, 2019:
 * Version 0.1.0 released (initial release)
