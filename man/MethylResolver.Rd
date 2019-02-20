@@ -8,10 +8,10 @@ MethylResolver
 This function deconvolves bulk methylation data into cell type fractions given a reference signature matrix for each cell type expected in the bulk profile. It also allows for the estimation of unknown content (purity) which allows both relative and absolute cell type fractions to be reported.
 }
 \usage{
-MethylResolver(methylMix = NULL, methylSig = "default",
+MethylResolver(methylMix = NULL, methylSig = MethylSig,
   betaPrime = TRUE, outputPath = "./", outputName = 
   "MethylResolver", doPar = FALSE, numCores = 1, 
-  alpha = 0.5, absolute = TRUE, purityModel = "default")
+  alpha = 0.5, absolute = TRUE, purityModel = RFmodel)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -56,30 +56,8 @@ MethylResolver(methylMix = NULL, methylSig = "default",
     is our RF model trained on the consensus purity estimate (CPE) using TCGA data.
   }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
 \author{
   Douglas Arneson
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
 # Deconvolution with default signature and calculating

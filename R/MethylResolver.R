@@ -1,8 +1,10 @@
 #Least Trimmed Squares Regression (LTS Regression)
-MethylResolver <- function(methylMix = NULL, methylSig = "default", betaPrime = TRUE, outputPath = "./",
+MethylResolver <- function(methylMix = NULL, methylSig = MethylSig, betaPrime = TRUE, outputPath = "./",
                            outputName = "MethylResolver", doPar = FALSE, numCores = 1,
-                           alpha = 0.5, absolute = TRUE, purityModel = "default") {
+                           alpha = 0.5, absolute = TRUE, purityModel = RFmodel) {
   
+  i <- NULL ## To please R CMD check
+
   #User must provide a methylation mixture file
   if(is.null(methylMix)){
     cat("Please provide a methylation mixture file")
@@ -12,24 +14,12 @@ MethylResolver <- function(methylMix = NULL, methylSig = "default", betaPrime = 
     } else{
       cat("Beginning LTS Deconvolution For This Mixture...\n")
       
-      #Load required packages
-      # library(varhandle)
-      # library(doSNOW)
-      # library(robustbase)
-      # library(foreach)
-      # library(doParallel)
-      # library(Metrics)
-      # library(randomForest)
-      
       #Load the MethylResolver leukocyte signature, if default
-      if(is.character(methylSig)){
-        if(methylSig == "default"){
-          # load(file = "./data/methylSig.rda")
-          # data("MethylSig", package="MethylResolver")
-          methylSig = MethylSig
-          # system.file("data", "methylSig.rda", package = "MethylResolver")
-        }
-      }
+      # if(is.character(methylSig)){
+      #   if(methylSig == "default"){
+      #     methylSig = MethylSig
+      #   }
+      # }
 
       #Format input matrices
       methylSig <- as.data.frame(methylSig)
@@ -114,23 +104,20 @@ MethylResolver <- function(methylMix = NULL, methylSig = "default", betaPrime = 
       if(absolute == TRUE){
         #Predict sample purity and calculate absolute fractions
         ignoreMetrics = which(colnames(ltsModel) %in% c("RMSE1","R1","RMSE2","R2"))
-        if(is.character(purityModel)){
-          if(purityModel == "default"){
-            # rfModel = readRDS("./data/TumorPurityRFModel.RDS")
-            # load("./data/TumorPurityRFModel.rda")
-            data("RFmodel", package="MethylResolver")
-            rfModel = RFmodel
-          }
-        } else{
-          if(class(purityModel)[1] == "randomForest.formula"){
-            rfModel = purityModel
-          }
-          else{
-            cat("Provided purity model is not correct. Please provide a random forest model trained to
-                predict purity...")
-          }
+        # if(is.character(purityModel)){
+        #   if(purityModel == "default"){
+        #     data("RFmodel", package="MethylResolver")
+        #     rfModel = RFmodel
+        #   }
+        # } else{
+        if(class(purityModel)[1] == "randomForest.formula"){
+          rfModel = purityModel
         }
-        # purityPrediction = predict(rfModel,ltsModel[,-ignoreMetrics])
+        else{
+          cat("Provided purity model is not correct. Please provide a random forest model trained to
+              predict purity...")
+        }
+        # }
         purityPrediction = predict(rfModel,ltsModel)
         absoluteFractions = ltsModel[,-ignoreMetrics]*(1-purityPrediction)
         colnames(absoluteFractions) = paste0("abs_",colnames(absoluteFractions))
