@@ -11,10 +11,9 @@
 - [System Requirements](#system-requirements)
 - [Installation Guide](#installation-guide)
 - [Demo](#demo)
-- [Results](#results)
 - [License](./LICENSE)
-- [Issues](https://github.com/ebridge2/lol/issues)
-- [Citation](#citation)
+- [Issues](https://github.com/darneson/MethylResolver/issues)
+- [Version](#version-history)
 
 # Overview
 ``MethylResolver`` is an R package to conduct robust deconvolution of bulk tissue methylation profiles using a reference signature. A reference signature of 11 leukocyte cell types is provided. Additionally, tumor purity and tumor purity-adjusted cell type fractions can be estimated without a reference of the tumor using a Random Forest regression model trained on concensus tumor purity estimates (CPE) of TCGA samples.
