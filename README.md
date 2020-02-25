@@ -1,5 +1,7 @@
 # MethylResolver
 
+[![Inline docs](http://inch-ci.org/github/darneson/MethylResolver.svg?branch=master)](http://inch-ci.org/github/darneson/MethylResolver)
+
 ## Contents
 
 - [Overview](#overview)
