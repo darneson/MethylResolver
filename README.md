@@ -21,7 +21,32 @@
 
 MethylResolver was developed and is maintained by Douglas Arneson at UCLA.
 
-## System Requirements
+# Repo Contents
+
+- [R](./R): `R` package code.
+- [man](./man): package manual for help in R session.
+- [data](./data): data used in the tutorial, the RF model, and the signature matrix.
+
+# System Requirements
+
+## Hardware Requirements
+
+The `MethylResolver` package requires only a standard computer with Rstudio installed.
+
+## Software Requirements
+
+### OS Requirements
+
+The package has tested on *Mac OSX* operating systems. The package has been tested on the following systems:
+
+Linux:  
+Mac OSX: macOS Mojave 10.14.6
+Windows:  
+
+The R package should be compatible with Windows, Mac, and Linux operating systems.
+
+Before setting up the `MethylResolver` package, users should have `R` version 3.4.0 or higher.
+
 
 ## Install MethylResolver v0.1.0
 ```r
