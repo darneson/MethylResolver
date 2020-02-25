@@ -60,22 +60,24 @@ library(MethylResolver)
 
 # Demo
 
-## Functions
+## Examples
 
-For interactive demos of the functions, please check out the vignettes built into the package. They can be accessed as follows:
+For demos of the functions, please check out the examples built into the package. They can be accessed as follows:
 
 ```
-require(lolR)
-vignette('lol')
-vignette('pca')
-vignette('cpca')
-vignette('lrcca')
-vignette('mdp')
-vignette('xval')
-vignette('qoq')
-vignette('simulations')
-vignette('nearestCentroid')
+require(MethylResolver)
+
+# Deconvolution with default signature and calculating absolute fractions with default RF model:
+MethylResolver(methylMix = MethylMix)
+
+# Deconvolution with default signature and only calculating relative fractions:
+MethylResolver(methylMix = MethylMix, absolute = FALSE)
+
+# Specify your own signature matrix and RF model for calculating absolute fractions:
+MethylResolver(methylMix = MethylMix, methylSig = MethylSig, purityModel = RFmodel)
 ```
+
+Also, please look at the built in help for descriptions of the parameters using: `?MethylResolver`.
 
 # Version History
 
