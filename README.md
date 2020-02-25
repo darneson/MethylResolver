@@ -1,7 +1,7 @@
 # MethylResolver
 
-[![Inline docs](http://inch-ci.org/github/darneson/MethylResolver.svg?branch=master)](http://inch-ci.org/github/darneson/MethylResolver)
 [![Build Status](https://travis-ci.org/darneson/MethylResolver.png?branch=master)](https://travis-ci.org/darneson/MethylResolver)
+[![HitCount](http://hits.dwyl.com/darneson/MethylResolver.svg)](http://hits.dwyl.com/darneson/MethylResolver)
 
 ## Contents
 
