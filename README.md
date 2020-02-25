@@ -58,6 +58,8 @@ devtools::install_github(repo = 'darneson/MethylResolver')
 library(MethylResolver)
 ```
 
+Typical install times are 1-2 minutes.
+
 # Demo
 
 ## Examples
@@ -76,6 +78,8 @@ MethylResolver(methylMix = MethylMix, absolute = FALSE)
 # Specify your own signature matrix and RF model for calculating absolute fractions:
 MethylResolver(methylMix = MethylMix, methylSig = MethylSig, purityModel = RFmodel)
 ```
+
+Typical run times for the examples are ~10 seconds.
 
 Also, please look at the built in help for descriptions of the parameters using: `?MethylResolver`.
 
