@@ -40,22 +40,45 @@ The `MethylResolver` package requires only a standard computer with Rstudio inst
 The package has tested on *Mac OSX* operating systems. The package has been tested on the following systems:
 
 Linux:  
-Mac OSX: macOS Mojave 10.14.6
+Mac OSX: macOS Mojave 10.14.6  
 Windows:  
 
 The R package should be compatible with Windows, Mac, and Linux operating systems.
 
 Before setting up the `MethylResolver` package, users should have `R` version 3.4.0 or higher.
 
+# Installation Guide
 
-## Install MethylResolver v0.1.0
+## Stable Release
+
+`MethylResolver` is available from github:
+
 ```r
 install.packages('devtools')
 devtools::install_github(repo = 'darneson/MethylResolver')
 library(MethylResolver)
 ```
 
-## Version History
+# Demo
+
+## Functions
+
+For interactive demos of the functions, please check out the vignettes built into the package. They can be accessed as follows:
+
+```
+require(lolR)
+vignette('lol')
+vignette('pca')
+vignette('cpca')
+vignette('lrcca')
+vignette('mdp')
+vignette('xval')
+vignette('qoq')
+vignette('simulations')
+vignette('nearestCentroid')
+```
+
+# Version History
 
 February 20, 2019:
 * Version 0.1.0 released (initial release)
