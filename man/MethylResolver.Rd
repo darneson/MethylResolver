@@ -11,7 +11,7 @@ This function deconvolves bulk methylation data into cell type fractions given a
 MethylResolver(methylMix = NULL, methylSig = MethylSig,
   betaPrime = TRUE, outputPath = "./", outputName = 
   "MethylResolver", doPar = FALSE, numCores = 1, 
-  alpha = 0.5, absolute = TRUE, purityModel = RFmodel)
+  alpha = seq(0.5,0.9,by = 0.05), absolute = TRUE, purityModel = RFmodel)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -45,7 +45,11 @@ MethylResolver(methylMix = NULL, methylSig = MethylSig,
   }
   \item{alpha}{
     Set the alpha parameter for LTS deconvolution. This is the fraction of optimal CpGs
-    from the signature matrix which are used for deconvolution. Default is 0.5.
+    from the signature matrix which are used for deconvolution. Must be between 0 and 1.
+    Users can specify a vector or a single number. If a vector is specified, a grid
+    search of the values is conducted and the alpha value that results in the lowest
+    RMSE between the original and reconstructed mixture is selected. Default is
+    seq(0.5,0.9,by = 0.05).
   }
   \item{absolute}{
     Whether to compute tumor purity and absolute cell type fractions. Default is TRUE.
@@ -63,6 +67,11 @@ MethylResolver(methylMix = NULL, methylSig = MethylSig,
 # Deconvolution with default signature and calculating
 # absolute fractions with default RF model:
 MethylResolver(methylMix = MethylMix)
+
+# Deconvolution with default signature and calculating
+# absolute fractions with default RF model while 
+# specifying a particular alpha value:
+MethylResolver(methylMix = MethylMix, alpha = 0.5)
   
 # Deconvolution with default signature and only
 # calculating relative fractions:

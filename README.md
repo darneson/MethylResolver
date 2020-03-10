@@ -72,6 +72,10 @@ require(MethylResolver)
 # Deconvolution with default signature and calculating absolute fractions with default RF model:
 MethylResolver(methylMix = MethylMix)
 
+# Deconvolution with default signature and calculating absolute fractions with default RF model while 
+# specifying a particular alpha value:
+MethylResolver(methylMix = MethylMix, alpha = 0.5)
+
 # Deconvolution with default signature and only calculating relative fractions:
 MethylResolver(methylMix = MethylMix, absolute = FALSE)
 
